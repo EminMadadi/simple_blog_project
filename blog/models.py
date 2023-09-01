@@ -13,7 +13,7 @@ class Post(models.Model):
     author = models.ForeignKey('auth.USER', on_delete=models.CASCADE)
     datetime_created = models.DateTimeField(auto_now_add=True)
     datetime_modified = models.DateTimeField(auto_now=True)
-    status = models.IntegerField(choices=STATUS_CHOICES, max_length=1)
+    status = models.IntegerField(choices=STATUS_CHOICES)
 
     def __str__(self):
         return f'{self.title} | {self.author}'
