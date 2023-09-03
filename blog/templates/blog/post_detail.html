@@ -1,0 +1,22 @@
+{% extends '_base.html' %}
+
+{% block page_title %}
+    {{ post.title }}
+{% endblock page_title %}
+
+{% block content %}
+    <div class="card text-bg-light rounded-0 mb-3">
+        <div class="card-body">
+            <h1 class="mb-3">{{ post.title }}</h1>
+            <figure>
+                <blockquote class="blockquote">
+                    <p>{{ post.text }}</p>
+                </blockquote>
+                <figcaption class="blockquote-footer">
+                    Published by <cite title="Source Title">{{ post.author }}</cite>
+                </figcaption>
+            </figure>
+        </div>
+        <div class="card-footer text-secondary text-end">{{ post.datetime_created }}</div>
+    </div>
+{% endblock content %}
