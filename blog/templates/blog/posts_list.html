@@ -1,0 +1,23 @@
+{% extends '_base.html' %}
+
+{% block page_title %}
+    Blog
+{% endblock page_title %}
+
+{% block content %}
+    <div class="container my-5">
+        {% for post in posts_list %}
+            <div class="card text-bg-dark mb-3">
+                <div class="card-header"><h3>{{ post.title }}</h3></div>
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <p>{{ post.text }}</p>
+                        <footer class="blockquote-footer">{{ post.author }}</footer>
+                    </blockquote>
+                    <a class="btn btn-secondary" href="#" role="button">Read more</a>
+                </div>
+                <div class="card-footer text-body-secondary text-end">{{ post.datetime_created }}</div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock content %}
