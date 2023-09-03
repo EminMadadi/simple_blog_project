@@ -5,19 +5,21 @@
 {% endblock page_title %}
 
 {% block content %}
-    <div class="container my-5">
-        {% for post in posts_list %}
-            <div class="card text-bg-light rounded-0 mb-3">
-                <div class="card-header"><h3>{{ post.title }}</h3></div>
-                <div class="card-body">
-                    <blockquote class="blockquote mb-3">
-                        <p>{{ post.text }}</p>
-                        <footer class="blockquote-footer">{{ post.author }}</footer>
+    {% for post in posts_list %}
+        <div class="card text-bg-light rounded-0 mb-3">
+            <div class="card-header"><h3>{{ post.title }}</h3></div>
+            <div class="card-body">
+                <figure>
+                    <blockquote class="blockquote">
+                        <p class="text-truncate">{{ post.text }}</p>
                     </blockquote>
-                    <a class="btn btn-dark rounded-0 float-end" href="#" role="button">Read more</a>
-                </div>
-                <div class="card-footer text-secondary text-end">{{ post.datetime_created }}</div>
+                    <figcaption class="blockquote-footer">
+                        Published by <cite title="Source Title">{{ post.author }}</cite>
+                    </figcaption>
+                </figure>
+                <a class="btn btn-dark rounded-0 float-end" href="{% url 'post_detail' post.id %}" role="button">Read more</a>
             </div>
-        {% endfor %}
-    </div>
+            <div class="card-footer text-secondary text-end">{{ post.datetime_created }}</div>
+        </div>
+    {% endfor %}
 {% endblock content %}
